@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Anti Adblock </title>
+	
+<style type="text/css">
+    .spanbg {
+  background-color: red !important;
+}
+
+.warning{
+  height: 100vh;
+}
+
+#printableArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: arial, sans-serif;
+  color: #FFF;
+  font-weight: 600;
+  padding: 30px 20px;
+  border-radius: 3px;
+  font-size: 40px;
+  width: 455px;
+  text-align: justify;
+}
+
+@media(max-width:600px){
+  #printableArea{
+    font-size: 25px;
+    width: 90%;
+  }
+}
+div#printableArea {
+    position: absolute;
+    z-index: 111111;
+    width: 100%;
+    height: 100vh !important;
+    background: #262222;
+}
+
+body.cs-dark {
+    position: relative;
+    z-index: 33;
+}
+div#printableArea h6 {
+    font-family: system-ui;
+    font-size: 18px;
+}
+#printableArea{
+    transition: background 4s;
+}
+
+</style>
+</head>
+<body>
+
+<div class="warning" id="printableArea">
+    <p class="message spanbg" id="printableArea"></p>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js').then(() => {
+  document.querySelector('#printableArea').remove();
+  document.querySelector('html').style.overflow="visible";
+})
+.catch(() => {
+
+  document.getElementsByClassName('message')[0].innerHTML = 'Adblock Detected! <br> <br> <h6> Our website is made possible by displaying online advertisements to our visitors. Please consider supporting us by whitelisting our website. </h6>';
+});
+
+if(document.querySelectorAll('[id*="printableArea"]')){
+  document.querySelector('html').style.overflow="hidden";
+}
+</script>
+</body>
+</html>
